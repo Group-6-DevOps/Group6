@@ -3,17 +3,17 @@ package com.napier.sem;
 /**
  * Represents an employee
  */
-public class Employee
+public class City
 {
     /**
      * Employee number
      */
-    public int emp_no;
+    public int ID;
 
     /**
      * Employee's first name
      */
-    public String first_name;
+    public String name;
 
     /**
      * Employee's last name
