@@ -34,14 +34,14 @@ Users
 A request for world information is sent to users.
 
 ## MAIN SUCCESS SCENARIO
-Display The list of Country by population from largest to smallest.
-Display the countries in Asia by population from largest to smallest.
-Display the countries in Southeast Asia by population from largest to smallest.
-Display Top 10 populated countries in the world.
-Display Top 10 populated countries in Asia.
-Display Top 10 populated countries in Southeast Asia.
-Display cities in the world organized by population from largest to smallest.
-Display the countries in Southeast Asia by population from largest to smallest.
+- Display The list of Country by population from largest to smallest.
+- Display the countries in Asia by population from largest to smallest.
+- Display the countries in Southeast Asia by population from largest to smallest.
+- Display Top 10 populated countries in the world.
+- Display Top 10 populated countries in Asia.
+- Display Top 10 populated countries in Southeast Asia.
+- Display cities in the world organized by population from largest to smallest.
+- Display the countries in Southeast Asia by population from largest to smallest.
 
 ## EXTENSIONS
 
