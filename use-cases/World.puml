@@ -1,25 +1,42 @@
 @startuml
 
 actor Users as "Users"
-
+left to right direction
 rectangle Database
 
 rectangle "World Information" {
-    usecase UC1 as "Arrange the Countries Population and list"
-
-    usecase UCa as "Countries Population information"
-
+    usecase UC1 as "Display The list of Country by population from largest to smallest"
     Users - UC1
-    UC1 ..> UCa : include
     UC1 - Database
-}
-rectangle "World Information" {
-    usecase UC2 as "Organsing the cities population and list"
 
-    usecase UCb as "Cities Population information"
-
+    usecase UC2 as "Display the countries in Asia by population from largest to smallest"
     Users - UC2
-    UC2 ..> UCb : include
     UC2 - Database
+
+    usecase UC3 as "Display the countries in Southeast Asia by population from largest to smallest"
+    Users - UC3
+    UC3 - Database
+
+    usecase UC4 as "Display Top 10 populated countries in the world"
+    Users - UC4
+    UC4 - Database
+
+    usecase UC5 as "Display Top 10 populated countries in Asia"
+    Users - UC5
+    UC5 - Database
+
+    usecase UC6 as "Display Top 10 populated countries in Southeast Asia"
+    Users - UC6
+    UC6 - Database
+
+    usecase UC7 as "Display cities in the world organized by population from largest to smallest"
+    Users - UC7
+    UC7 - Database
+
+    usecase UC8 as "Display the countries in Southeast Asia by population from largest to smallest"
+    Users - UC8
+    UC8 - Database
+
 }
+
 @enduml
