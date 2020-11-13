@@ -1,0 +1,25 @@
+@startuml
+
+actor Users as "Users"
+
+rectangle Database
+
+rectangle "World Information" {
+    usecase UC1 as "Arrange the Countries Population and list"
+
+    usecase UCa as "Countries Population information"
+
+    Users - UC1
+    UC1 ..> UCa : include
+    UC1 - Database
+}
+rectangle "World Information" {
+    usecase UC2 as "Organsing the cities population and list"
+
+    usecase UCb as "Cities Population information"
+
+    Users - UC2
+    UC2 ..> UCb : include
+    UC2 - Database
+}
+@enduml
