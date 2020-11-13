@@ -13,39 +13,44 @@ Organization.
 
 Primary task.
 
-Preconditions
+### Preconditions
 
-Database contains 
- Success End Condition
+Database contains information of world population.
 
-A report is available for HR to provide to finance.
+### Success End Condition
 
-Failed End Condition
+A report is available for user to view world population.
+
+### Failed End Condition
 
 No report is produced.
 
-Primary Actor
+### Primary Actor
 
-HR Advisor.
+Users
 
-Trigger
+### Trigger
 
-A request for finance information is sent to HR.
+A request for world information is sent to users.
 
-MAIN SUCCESS SCENARIO
+## MAIN SUCCESS SCENARIO
+Display The list of Country by population from largest to smallest.
+Display the countries in Asia by population from largest to smallest.
+Display the countries in Southeast Asia by population from largest to smallest.
+Display Top 10 populated countries in the world.
+Display Top 10 populated countries in Asia.
+Display Top 10 populated countries in Southeast Asia.
+Display cities in the world organized by population from largest to smallest.
+Display the countries in Southeast Asia by population from largest to smallest.
 
-Finance request salary information for a given role.
-HR advisor captures name of the role to get salary information for.
-HR advisor extracts current salary information of all employees of the given role.
-HR advisor provides report to finance.
-EXTENSIONS
+## EXTENSIONS
 
 Role does not exist:
-HR advisor informs finance no role exists.
-SUB-VARIATIONS
+
+## SUB-VARIATIONS
 
 None.
 
-SCHEDULE
+## SCHEDULE
 
-DUE DATE: Release 1.0
+DUE DATE: 13/11/2020
