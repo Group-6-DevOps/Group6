@@ -37,6 +37,18 @@ public class App
         ArrayList<Country> popcnty_world = a.mostpopcountry_worldLS();
         a.print_countrylist_regionLS(popcnty_world);
 
+        //Display Top 10 populated countries in Asia
+        System.out.println("\n");
+        System.out.println("Top 10 Populated countries in Asia");
+        ArrayList<Country> popcnty_continent = a.mostpopcnty_continent();
+        a.print_countrylist_continentLS(popcnty_continent);
+
+        //Display Top 10 populated countries in Southeast Asia
+        System.out.println("\n");
+        System.out.println("Top 10 Populated countries in Southeast Asia");
+        ArrayList<Country> popcity = a.popcity_world();
+        a.print_popcity_world(popcity);
+
         // Disconnect from database
         a.disconnect();
     }
@@ -286,5 +298,96 @@ public class App
         }
     }
     //End
+
+    //Query 5
+    public ArrayList<Country> mostpopcnty_continent()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String regionlist = "SELECT Code, Name, Continent, Region, Population, Capital FROM country WHERE Continent = 'Asia' ORDER by Population DESC limit 10";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(regionlist);
+            // Extract employee information
+            ArrayList<Country> Country = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country cntry = new Country();
+                cntry.setCode(rset.getString("Code"));
+                cntry.setContinent(rset.getString("Continent"));
+                cntry.setName(rset.getString("Name"));
+                cntry.setRegion(rset.getString("Region"));
+                cntry.setPopulation(rset.getInt("Population"));
+                cntry.setCapital(rset.getInt("Capital"));
+                Country.add(cntry);
+            }
+            return Country;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Country list");
+            return null;
+        }
+    }
+    public void prin_popcnty_continent(ArrayList<Country> Country2)
+    {
+        // Print header
+        System.out.println(String.format("%-10s %-30s %-45s %-55s %-60s %-65s", "Population", "Code", "Country Name", "continent", "region", "capital" ));
+        // Loop over all employees in the list
+        for (Country emp : Country2) {
+            String emp_string =
+                    String.format("%-10s %-30s %-45s %-55s %-60s %-65s",
+                            emp.getPopulation(), emp.getCode(), emp.getName(), emp.getContinent(), emp.getRegion(), emp.getCapital());
+            System.out.println(emp_string);
+        }
+    }
+    //End
+
+    //Query 6
+    public ArrayList<Country> popcity_world()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String regionlist = "SELECT Code, Name, Continent, Region, Population, Capital FROM country WHERE Region = 'Southeast Asia' ORDER by Population DESC limit 10";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(regionlist);
+            // Extract employee information
+            ArrayList<Country> Country = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country cntry = new Country();
+                cntry.setCode(rset.getString("Code"));
+                cntry.setContinent(rset.getString("Continent"));
+                cntry.setName(rset.getString("Name"));
+                cntry.setRegion(rset.getString("Region"));
+                cntry.setPopulation(rset.getInt("Population"));
+                cntry.setCapital(rset.getInt("Capital"));
+                Country.add(cntry);
+            }
+            return Country;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Country list");
+            return null;
+        }
+    }
+    public void print_popcity_world(ArrayList<Country> Country3)
+    {
+        // Print header
+        System.out.println(String.format("%-10s %-30s %-45s %-55s %-60s %-65s", "Population", "Code", "Country Name", "continent", "region", "capital" ));
+        // Loop over all employees in the list
+        for (Country emp : Country3) {
+            String emp_string =
+                    String.format("%-10s %-30s %-45s %-55s %-60s %-65s",
+                            emp.getPopulation(), emp.getCode(), emp.getName(), emp.getContinent(), emp.getRegion(), emp.getCapital());
+            System.out.println(emp_string);
+        }
+    }
+    //End
+
 
 }
