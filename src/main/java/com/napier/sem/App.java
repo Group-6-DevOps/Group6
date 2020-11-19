@@ -557,7 +557,7 @@ public class App
     }
     //End
 
-    //Function 13
+    //Query 13
     public ArrayList<City> mostpopcity_continentLS()
     {
         try
@@ -607,7 +607,7 @@ public class App
     }
     //End
 
-    //Function 14
+    //Query 14
     public ArrayList<City> mostpopcity_regionLS()
     {
         try
