@@ -97,6 +97,19 @@ public class App
         ArrayList<City> popcity_district = a.pcity_districtLS();
         a.print_popucitylist_districtLS(popcity_district);
 
+
+        //Display Top 10 populated cities in JAPAN
+        System.out.println("\n");
+        System.out.println("Top 10 Populated cities in Japan country");
+        ArrayList<City> popcitylistcountry = a.mostpop_city_countryLS();
+        a.print_populationcity_countryLS(popcitylistcountry);
+
+        //Display Top 10 populated cities in Chiba district
+        System.out.println("\n");
+        System.out.println("Top 10 Populated cities in Chiba District");
+        ArrayList<City> popcitylistdistrict = a.mostpop_city_districtLS();
+        a.print_populationcity_DistrictLS(popcitylistdistrict);
+
         // Disconnect from database
         a.disconnect();
     }
@@ -827,6 +840,106 @@ public class App
             String emp_string =
                     String.format("%-10s %-30s %-45s %-55s",
                             emp.getPopulation(), emp.getName(), emp.getContinent(),emp.getDistrict());
+            System.out.println(emp_string);
+        }
+    }
+    //End
+
+    //Query 15
+    public ArrayList<City> mostpop_city_countryLS(){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String citylist = "SELECT city.Name, city.CountryCode, city.District, city.Population,country.Code, country.Continent FROM city,country Where city.CountryCode = country.code and country.Name = 'Japan' ORDER by Population DESC Limit 10";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(citylist);
+            // Extract employee information
+            ArrayList<City> City = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+//                city.setCode(rset.getString("Code"));
+                //city.setContinent(rset.getString("Continent"));
+                city.setName(rset.getString("Name"));
+                city.setCountry(rset.getString("CountryCode"));
+                city.setPopulation(rset.getInt("Population"));
+                city.setDistrict(rset.getString("District"));
+                City.add(city);
+            }
+            return City;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Country list");
+            return null;
+        }
+    }
+    public void print_populationcity_countryLS(ArrayList<City> City1)
+    {
+        //Check null
+        if(City1 == null) {
+            System.out.println("No Population City List information in Country");
+            return;
+        }
+        // Print header
+        System.out.println(String.format("%-10s %-30s %-45s %-55s", "Population", "City Name", "Country Name","district" ));
+        // Loop over all employees in the list
+        for (City emp : City1) {
+            if (emp == null)
+                continue;
+            String emp_string =
+                    String.format("%-10s %-30s %-45s %-55s",
+                            emp.getPopulation(), emp.getName(), emp.getCountry(),emp.getDistrict());
+            System.out.println(emp_string);
+        }
+    }
+    //End
+
+    //Query 16
+    public ArrayList<City> mostpop_city_districtLS(){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String citylist = "SELECT city.Name, city.CountryCode, city.District, city.Population FROM city Where city.District = 'Chiba' ORDER by Population DESC Limit 10";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(citylist);
+            // Extract employee information
+            ArrayList<City> City = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+                city.setCountry(rset.getString("CountryCode"));
+                city.setName(rset.getString("Name"));
+                city.setPopulation(rset.getInt("Population"));
+                city.setDistrict(rset.getString("District"));
+                City.add(city);
+            }
+            return City;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Country list");
+            return null;
+        }
+    }
+    public void print_populationcity_DistrictLS(ArrayList<City> City1)
+    {
+        //Check null
+        if(City1 == null) {
+            System.out.println("No Population City List information in District");
+            return;
+        }
+        // Print header
+        System.out.println(String.format("%-10s %-30s %-45s %-55s", "Population", "City Name", "Country Name","district" ));
+        // Loop over all employees in the list
+        for (City emp : City1) {
+            if (emp == null)
+                continue;
+            String emp_string =
+                    String.format("%-10s %-30s %-45s %-55s",
+                            emp.getPopulation(), emp.getName(), emp.getCountry(),emp.getDistrict());
             System.out.println(emp_string);
         }
     }
