@@ -731,6 +731,10 @@ public class App
     }
     public void print_pcity_world(ArrayList<City> City1)
     {
+        if(City1 == null){
+            System.out.println("No Population City List information in World");
+            return;
+        }
         // Print header
         System.out.println(String.format("%-10s %-30s %-45s %-55s", "Population", "Country Name", "Continent", "District"));
         // Loop over all cities in the list
