@@ -11,7 +11,14 @@ public class App
         App a = new App();
 
         // Connect to database
-        a.connect("localhost:33060");
+        if (args.length < 1)
+        {
+            a.connect("localhost:3306");
+        }
+        else
+        {
+            a.connect(args[0]);
+        }
 
         //Display The list of Country by population from largest to smallest
         System.out.println("\n");
