@@ -37,11 +37,11 @@ A request for world information is sent to users.
 - All the cities in a region organised by largest population to smallest.
 - All the cities in a country organised by largest population to smallest.
 - All the cities in a district organised by largest population to smallest.
-- The top N populated cities in the world where N is provided by the user.
-- The top N populated cities in a continent where N is provided by the user.
-- The top N populated cities in a region where N is provided by the user.
-- The top N populated cities in a country where N is provided by the user.
-- The top N populated cities in a district where N is provided by the user.
+- The top 10 populated cities in the world where N is provided by the user.
+- The top 10 populated cities in a continent where N is provided by the user.
+- The top 10 populated cities in a region where N is provided by the user.
+- The top 10 populated cities in a country where N is provided by the user.
+- The top 10 populated cities in a district where N is provided by the user.
 
 ## EXTENSIONS
 
