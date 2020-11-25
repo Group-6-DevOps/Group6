@@ -43,7 +43,7 @@ jobs:
       - git tag $TRAVIS_TAG
     deploy:
       provider: release
-      api_key: $9e893fc58b5a352301d3c348a59920ce48960c63
+      api_key: 9e893fc58b5a352301d3c348a59920ce48960c63
       # Copy built JAR file.  JAR built in $TRAVIS_BUILD_DIR/
       file: $TRAVIS_BUILD_DIR/target/Group6.jar
       skip_cleanup: true
