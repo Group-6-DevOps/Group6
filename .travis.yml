@@ -35,8 +35,8 @@ jobs:
         - docker-compose up --abort-on-container-exit
     before_deploy:
       # Set up git user name and tag this commit
-      - git config --local user.name "40478621"
-      - git config --local user.email "40478621@live.napier.ac.uk"
+      - git config --local user.name "40478637"
+      - git config --local user.email "40478637@live.napier.ac.uk"
       # Create temporary tag from date and Git log.
       - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y-%m-%d')-$(git log --format=%h -1)}
       # Set tag
