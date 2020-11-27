@@ -141,6 +141,30 @@ public class App
         ArrayList<City> populatedcapitalcitiesworld = a.populatedcapitalcitiesworld();
         a.printpopulatedcapitalcitiesworld(populatedcapitalcitiesworld);
 
+        //Display Top 10 populated capital cities in a continent
+        System.out.println("\n");
+        System.out.println("Top 10 Populated capital cities in Asia continent");
+        ArrayList<City> popCapCityContinent = a.pop_capitalCityContinent();
+        a.print_pop_capitalCityContinent(popCapCityContinent);
+
+        //Display Top 10 populated capital cities in a region
+        System.out.println("\n");
+        System.out.println("Top 10 Populated capital cities in Eastern Asia region");
+        ArrayList<City> popCapCityRegion = a.pop_capitalCityRegion();
+        a.print_pop_capitalCityRegion(popCapCityRegion);
+
+        //Display the population of a region
+        System.out.println("\n");
+        System.out.println("The Population of a region");
+        ArrayList<Country> popRegion = a.getPopRegion();
+        a.print_popRegion(popRegion);
+
+        //Display the population of a country
+        System.out.println("\n");
+        System.out.println("The Population of a country");
+        ArrayList<Country> popCountry = a.getPopCountry();
+        a.print_popCountry(popCountry);
+
         // Disconnect from database
         a.disconnect();
     }
@@ -1183,5 +1207,190 @@ public class App
         }
     }
     //End
+
+    //Query 21
+    public ArrayList<City> pop_capitalCityContinent(){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String citylist = "Select city.Population,city.ID, city.Name, city.District, city.CountryCode, city.Population, country.Name, country.Capital from city,country where country.Capital = city.ID and country.Continent = 'Asia' Order By city.Population DESC Limit 10 ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(citylist);
+            // Extract City information
+            ArrayList<City> City = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+                city.setName(rset.getString("Name"));
+                city.setCountry(rset.getString("CountryCode"));
+                city.setPopulation(rset.getInt("Population"));
+                city.setDistrict(rset.getString("District"));
+                City.add(city);
+            }
+            return City;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print top capital cities list");
+            return null;
+        }
+    }
+    public void print_pop_capitalCityContinent(ArrayList<City> City1)
+    {
+        //Check null
+        if(City1 == null) {
+            System.out.println("No Population City List information in Region");
+            return;
+        }
+        // Print header
+        System.out.println(String.format("%-10s %-30s %-45s %-55s", "Population", "City Name", "Country Name","district" ));
+        // Loop over all employees in the list
+        for (City emp : City1) {
+            if (emp == null)
+                continue;
+            String emp_string =
+                    String.format("%-10s %-30s %-45s %-55s",
+                            emp.getPopulation(), emp.getName(), emp.getCountry(),emp.getDistrict());
+            System.out.println(emp_string);
+        }
+    }
+    //End
+
+    //Query 22
+    public ArrayList<City> pop_capitalCityRegion(){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String citylist = "Select city.Population,city.ID, city.Name, city.District, city.CountryCode, city.Population, country.Name, country.Capital from city,country where country.Capital = city.ID and country.Region = 'Eastern Asia' Order By city.Population DESC Limit 10 ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(citylist);
+            // Extract City information
+            ArrayList<City> City = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+                city.setName(rset.getString("Name"));
+                city.setCountry(rset.getString("CountryCode"));
+                city.setPopulation(rset.getInt("Population"));
+                city.setDistrict(rset.getString("District"));
+                City.add(city);
+            }
+            return City;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print top capital cities list in Easter Asia Region");
+            return null;
+        }
+    }
+    public void print_pop_capitalCityRegion(ArrayList<City> City1)
+    {
+        //Check null
+        if(City1 == null) {
+            System.out.println("No Population Capital City List information in Region");
+            return;
+        }
+        // Print header
+        System.out.println(String.format("%-10s %-30s %-45s %-55s", "Population", "City Name", "Country Name","district" ));
+        // Loop over all employees in the list
+        for (City emp : City1) {
+            if (emp == null)
+                continue;
+            String emp_string =
+                    String.format("%-10s %-30s %-45s %-55s",
+                            emp.getPopulation(), emp.getName(), emp.getCountry(),emp.getDistrict());
+            System.out.println(emp_string);
+        }
+    }
+    //End
+
+    //Query 28
+    public ArrayList<Country> getPopRegion()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String regionlist = "SELECT SUM(Population),Region FROM country WHERE Region = 'Middle East'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(regionlist);
+            // Extract employee information
+            ArrayList<Country> regions = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country cntry = new Country();
+                cntry.setRegion(rset.getString("Region"));
+                cntry.setPopulation(rset.getInt("SUM(Population)"));
+                regions.add(cntry);
+            }
+            return regions;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Regions list");
+            return null;
+        }
+    }
+    public void print_popRegion(ArrayList<Country> regions)
+    {
+        // Print header
+        System.out.println(String.format("%-10s %-30s", "Population", "region" ));
+        // Loop over all employees in the list
+        for (Country emp : regions) {
+            if (emp == null)
+                continue;
+            String emp_string =
+                    String.format("%-10s %-30s",
+                            emp.getPopulation(), emp.getRegion());
+            System.out.println(emp_string);
+        }
+    }
+    //End
+
+    //Query 29
+    public ArrayList<Country> getPopCountry()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String regionlist = "SELECT Population,Name FROM country WHERE Name = 'Albania'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(regionlist);
+            // Extract employee information
+            ArrayList<Country> countries = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country cntry = new Country();
+                cntry.setName(rset.getString("Name"));
+                cntry.setPopulation(rset.getInt("Population"));
+                countries.add(cntry);
+            }
+            return countries;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Countries list");
+            return null;
+        }
+    }
+    public void print_popCountry(ArrayList<Country> countries)
+    {
+        // Print header
+        System.out.println(String.format("%-10s %-30s", "Population", "Country Name" ));
+        // Loop over all employees in the list
+        for (Country emp : countries) {
+            if (emp == null)
+                continue;
+            String emp_string =
+                    String.format("%-10s %-30s",
+                            emp.getPopulation(), emp.getName());
+            System.out.println(emp_string);
+        }
+    }
+    //End
+
 
 }

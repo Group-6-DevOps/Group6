@@ -68,6 +68,40 @@ rectangle "World Information" {
       usecase UC16 as "Display Top 10 populated cities in Chiba district"
       Users - UC16
       UC16 - Database
+
+      usecase UC17 as "Display the population of capital cities in the world from largest to smallest"
+      Users - UC17
+      UC17 - Database
+
+      usecase UC18 as "Display Population of capital cities in Asia"
+      Users - UC18
+      UC18 - Database
+
+      usecase UC19 as "Display Population of capital cities in Eastern Asia from largest to smallest"
+      Users - UC19
+      UC19 - Database
+
+      usecase UC20 as "Display Top 10 populated capital cities in the world"
+      Users - UC20
+      UC20 - Database
+
+      usecase UC21 as "Display Top 10 Populated capital cities in Asia continent"
+      Users - UC21
+      UC21 - Database
+
+      usecase UC22 as "Display Top 10 Populated capital cities in Eastern Asia region"
+      Users - UC22
+      UC22 - Database
+
+      usecase UC28 as "Display the population of a region"
+      Users - UC28
+      UC28 - Database
+
+      usecase UC29 as "Display the population of a country"
+      Users - UC29
+      UC19 - Database
+
+
 }
 
 @enduml
