@@ -105,17 +105,41 @@ public class App
         a.print_popucitylist_districtLS(popcity_district);
 
 
-        //Display Top 10 populated cities in JAPAN
+        //Display Top 10 populated cities in JAPAN from largest to smallest
         System.out.println("\n");
-        System.out.println("Top 10 Populated cities in Japan country");
+        System.out.println("Top 10 Populated cities in Japan country from largest to smallest");
         ArrayList<City> popcitylistcountry = a.mostpop_city_countryLS();
         a.print_populationcity_countryLS(popcitylistcountry);
 
-        //Display Top 10 populated cities in Chiba district
+        //Display Top 10 populated cities in Chiba district from largest to smallest
         System.out.println("\n");
-        System.out.println("Top 10 Populated cities in Chiba District");
+        System.out.println("Top 10 Populated cities in Chiba District from largest to smallest");
         ArrayList<City> popcitylistdistrict = a.mostpop_city_districtLS();
         a.print_populationcity_DistrictLS(popcitylistdistrict);
+
+        //Display the population of capital cities in the world from largest to smallest
+        System.out.println("\n");
+        System.out.println("Population of capital cities in the world from largest to smallest");
+        ArrayList<City> capitalcitiesworld = a.capitalcitiesworldLS();
+        a.printcapitalcitiesLS(capitalcitiesworld);
+
+        //Display the population of capital cities in a continent from largest to smallest
+        System.out.println("\n");
+        System.out.println("Population of capital cities in Asia");
+        ArrayList<City> capitalcitiescontinent = a.capitalcitiescontinentLS();
+        a.printcapcitiescontinentLS(capitalcitiescontinent);
+
+        //Display the population of capital cities in a region from largest to smallest
+        System.out.println("\n");
+        System.out.println("Population of capital cities in Eastern Asia from largest to smallest");
+        ArrayList<City> capitalcitiesregion = a.capitalcitiesregionLS();
+        a.printcapcitiesregionLS(capitalcitiesregion);
+
+        //Display Top 10 populated capital cities in the world
+        System.out.println("\n");
+        System.out.println("Top 10 populated capital cities in the world");
+        ArrayList<City> populatedcapitalcitiesworld = a.populatedcapitalcitiesworld();
+        a.printpopulatedcapitalcitiesworld(populatedcapitalcitiesworld);
 
         // Disconnect from database
         a.disconnect();
@@ -943,6 +967,211 @@ public class App
         }
         // Print header
         System.out.println(String.format("%-10s %-30s %-45s %-55s", "Population", "City Name", "Country Name","district" ));
+        // Loop over all employees in the list
+        for (City emp : City1) {
+            if (emp == null)
+                continue;
+            String emp_string =
+                    String.format("%-10s %-30s %-45s %-55s",
+                            emp.getPopulation(), emp.getName(), emp.getCountry(),emp.getDistrict());
+            System.out.println(emp_string);
+        }
+    }
+    //End
+
+    //Query 17
+    public ArrayList<City> capitalcitiesworldLS(){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String citylist = "Select city.Population,city.ID, city.Name, city.District, city.CountryCode, country.Capital from city,country where city.ID = country.Capital Order By city.Population DESC ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(citylist);
+            // Extract employee information
+            ArrayList<City> City = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+//                city.setCode(rset.getString("Code"));
+                city.setCountry(rset.getString("CountryCode"));
+                city.setName(rset.getString("Name"));
+//                city.setRegion(rset.getString("Region"));
+                city.setPopulation(rset.getInt("Population"));
+                city.setDistrict(rset.getString("District"));
+                City.add(city);
+            }
+            return City;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Country list");
+            return null;
+        }
+    }
+    public void printcapitalcitiesLS(ArrayList<City> City1)
+    {
+        //Check null
+        if(City1 == null) {
+            System.out.println("No Population City List information in District");
+            return;
+        }
+        // Print header
+        System.out.println(String.format("%-10s %-30s %-45s %-55s", "Population", "City Name", "Country Name","district" ));
+        // Loop over all employees in the list
+        for (City emp : City1) {
+            if (emp == null)
+                continue;
+            String emp_string =
+                    String.format("%-10s %-30s %-45s %-55s",
+                            emp.getPopulation(), emp.getName(), emp.getCountry(),emp.getDistrict());
+            System.out.println(emp_string);
+        }
+    }
+    //End
+
+    //Query 18
+    public ArrayList<City> capitalcitiescontinentLS(){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String citylist = "Select city.Population,city.ID, city.Name, city.District, city.CountryCode, country.Capital from city,country where city.ID = country.Capital and country.Continent = 'Asia' Order By city.Population DESC ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(citylist);
+            // Extract employee information
+            ArrayList<City> City = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+//                city.setCode(rset.getString("Code"));
+                city.setCountry(rset.getString("CountryCode"));
+                city.setName(rset.getString("Name"));
+//                city.setRegion(rset.getString("Region"));
+                city.setPopulation(rset.getInt("Population"));
+                city.setDistrict(rset.getString("District"));
+                City.add(city);
+            }
+            return City;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Country list");
+            return null;
+        }
+    }
+    public void printcapcitiescontinentLS(ArrayList<City> City1)
+    {
+        //Check null
+        if(City1 == null) {
+            System.out.println("No Population City List information in Region");
+            return;
+        }
+        // Print header
+        System.out.println(String.format("%-10s %-30s %-45s %-55s", "Population", "City Name", "Country Name","district" ));
+        // Loop over all employees in the list
+        for (City emp : City1) {
+            if (emp == null)
+                continue;
+            String emp_string =
+                    String.format("%-10s %-30s %-45s %-55s",
+                            emp.getPopulation(), emp.getName(), emp.getCountry(),emp.getDistrict());
+            System.out.println(emp_string);
+        }
+    }
+    //End
+
+    //Query 19
+    public ArrayList<City> capitalcitiesregionLS(){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String citylist = "Select city.Population,city.ID, city.Name, city.District, city.CountryCode, country.Capital from city,country where city.ID = country.Capital and country.Region = 'Eastern Asia' Order By city.Population DESC ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(citylist);
+            // Extract employee information
+            ArrayList<City> City = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+//                city.setCode(rset.getString("Code"));
+                city.setCountry(rset.getString("CountryCode"));
+                city.setName(rset.getString("Name"));
+//                city.setRegion(rset.getString("Region"));
+                city.setPopulation(rset.getInt("Population"));
+                city.setDistrict(rset.getString("District"));
+                City.add(city);
+            }
+            return City;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Country list");
+            return null;
+        }
+    }
+    public void printcapcitiesregionLS(ArrayList<City> City1)
+    {
+        //Check null
+        if(City1 == null) {
+            System.out.println("No Population City List information in Region");
+            return;
+        }
+        // Print header
+        System.out.println(String.format("%-10s %-30s %-45s %-55s", "Population", "City Name", "Country Name","district" ));
+        // Loop over all employees in the list
+        for (City emp : City1) {
+            if (emp == null)
+                continue;
+            String emp_string =
+                    String.format("%-10s %-30s %-45s %-55s",
+                            emp.getPopulation(), emp.getName(), emp.getCountry(),emp.getDistrict());
+            System.out.println(emp_string);
+        }
+    }
+    //End
+
+    //Query 20
+    public ArrayList<City> populatedcapitalcitiesworld()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String regionlist = "Select city.Population,city.ID, city.Name, city.District, city.CountryCode, country.Capital from city,country where city.ID = country.Capital Order By city.Population DESC Limit 10";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(regionlist);
+            // Extract employee information
+            ArrayList<City> City = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+//                city.setCode(rset.getString("Code"));
+                city.setCountry(rset.getString("CountryCode"));
+                city.setName(rset.getString("Name"));
+//                city.setRegion(rset.getString("Region"));
+                city.setPopulation(rset.getInt("Population"));
+                city.setDistrict(rset.getString("District"));
+                City.add(city);
+            }
+            return City;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Country list");
+            return null;
+        }
+    }
+    public void printpopulatedcapitalcitiesworld(ArrayList<City> City1)
+    {
+        //Check null
+        if(City1 == null){
+            System.out.println("No City List information in World");
+            return;
+        }
+        // Print header
+        System.out.println(String.format("%-10s %-30s %-45s %-55s", "Population", "Country Name", "continent","district" ));
         // Loop over all employees in the list
         for (City emp : City1) {
             if (emp == null)
