@@ -93,14 +93,25 @@ rectangle "World Information" {
       Users - UC22
       UC22 - Database
 
-      usecase UC23 as "Display the population of a region"
-      Users - UC23
-      UC23 - Database
+      usecase UC27 as "Display the population of North America Continent"
+      Users - UC27
+      UC27 - Database
 
-      usecase UC24 as "Display the population of a country"
-      Users - UC24
-      UC24 - Database
+      usecase UC28 as "Display the population of Middle East region"
+      Users - UC28
+      UC28 - Database
 
+      usecase UC29 as "Display the population of Albania country"
+      Users - UC29
+      UC29 - Database
+
+      usecase UC30 as "Display the population of New South Wales district"
+      Users - UC30
+      UC30 - Database
+
+      usecase UC31 as "Display the population of Sydney city"
+      Users - UC31
+      UC31 - Database
 
 }
 

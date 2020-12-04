@@ -153,17 +153,35 @@ public class App
         ArrayList<City> popCapCityRegion = a.pop_capitalCityRegion();
         a.print_pop_capitalCityRegion(popCapCityRegion);
 
+        //Display the population of a continent
+        System.out.println("\n");
+        System.out.println("The Population of North America continent");
+        ArrayList<Country> popContinent = a.getPopContinent();
+        a.print_popContinent(popContinent);
+
         //Display the population of a region
         System.out.println("\n");
-        System.out.println("The Population of a region");
+        System.out.println("The Population of Middle East region");
         ArrayList<Country> popRegion = a.getPopRegion();
         a.print_popRegion(popRegion);
 
         //Display the population of a country
         System.out.println("\n");
-        System.out.println("The Population of a country");
+        System.out.println("The Population of Albania country");
         ArrayList<Country> popCountry = a.getPopCountry();
         a.print_popCountry(popCountry);
+
+        //Display the population of a district
+        System.out.println("\n");
+        System.out.println("The Population of New South Wales district");
+        ArrayList<City> popDistrict = a.getPopDistrict();
+        a.print_popDistrict(popDistrict);
+
+        //Display the population of a city
+        System.out.println("\n");
+        System.out.println("The Population of Sydney city");
+        ArrayList<City> popCity = a.getPopCity();
+        a.print_popCity(popCity);
 
         // Disconnect from database
         a.disconnect();
@@ -1306,6 +1324,51 @@ public class App
     }
     //End
 
+
+    //Query 27
+    public ArrayList<Country> getPopContinent()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String regionlist = "SELECT SUM(Population),Continent FROM country WHERE Continent = 'North America'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(regionlist);
+            // Extract employee information
+            ArrayList<Country> continents = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country cntry = new Country();
+                cntry.setContinent(rset.getString("Continent"));
+                cntry.setPopulation(rset.getInt("SUM(Population)"));
+                continents.add(cntry);
+            }
+            return continents;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Regions list");
+            return null;
+        }
+    }
+    public void print_popContinent(ArrayList<Country> continents)
+    {
+        // Print header
+        System.out.println(String.format("%-10s %-30s", "Population", "continent" ));
+        // Loop over all employees in the list
+        for (Country emp : continents) {
+            if (emp == null)
+                continue;
+            String emp_string =
+                    String.format("%-10s %-30s",
+                            emp.getPopulation(), emp.getContinent());
+            System.out.println(emp_string);
+        }
+    }
+    //End
+
+
     //Query 28
     public ArrayList<Country> getPopRegion()
     {
@@ -1382,6 +1445,93 @@ public class App
         System.out.println(String.format("%-10s %-30s", "Population", "Country Name" ));
         // Loop over all employees in the list
         for (Country emp : countries) {
+            if (emp == null)
+                continue;
+            String emp_string =
+                    String.format("%-10s %-30s",
+                            emp.getPopulation(), emp.getName());
+            System.out.println(emp_string);
+        }
+    }
+    //End
+
+    //Query 32
+    public ArrayList<City> getPopDistrict()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String regionlist = "SELECT SUM(Population),District FROM city WHERE District = 'New South Wales'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(regionlist);
+            // Extract employee information
+            ArrayList<City> cities = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+                city.setDistrict(rset.getString("District"));
+                city.setPopulation(rset.getInt("SUM(Population)"));
+                cities.add(city);
+            }
+            return cities;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print District Population list");
+            return null;
+        }
+    }
+    public void print_popDistrict(ArrayList<City> cities)
+    {
+        // Print header
+        System.out.println(String.format("%-10s %-30s", "Population", "District" ));
+        // Loop over all employees in the list
+        for (City emp : cities) {
+            if (emp == null)
+                continue;
+            String emp_string =
+                    String.format("%-10s %-30s",
+                            emp.getPopulation(), emp.getDistrict());
+            System.out.println(emp_string);
+        }
+    }
+    //End
+
+
+    //Query 32
+    public ArrayList<City> getPopCity()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String regionlist = "SELECT Population,Name FROM city WHERE Name = 'Sydney'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(regionlist);
+            // Extract employee information
+            ArrayList<City> cities = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+                city.setName(rset.getString("Name"));
+                city.setPopulation(rset.getInt("Population"));
+                cities.add(city);
+            }
+            return cities;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print City Population list");
+            return null;
+        }
+    }
+    public void print_popCity(ArrayList<City> cities)
+    {
+        // Print header
+        System.out.println(String.format("%-10s %-30s", "Population", "City Name" ));
+        // Loop over all employees in the list
+        for (City emp : cities) {
             if (emp == null)
                 continue;
             String emp_string =
