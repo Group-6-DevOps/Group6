@@ -78,4 +78,31 @@ public class Country {
         this.capital = newPop;
     }
     //end
+
+    //variable7
+    //Create variable for city population
+    private long ctyPopulation;
+    // Getter for city population
+    public long getCtyPopulation() {
+        return ctyPopulation;
+    }
+    // Setter for city population
+    public void setCtyPopulation(long newPop) {
+        this.ctyPopulation = newPop;
+    }
+    //end
+
+    //variable8
+    //Create variable for city population
+    private long counPopulation;
+    // Getter for city population
+    public long getCounPopulation() {
+        return counPopulation;
+    }
+    // Setter for city population
+    public void setCounPopulation(long newPop) {
+        this.counPopulation = newPop;
+    }
+    //end
+
 }

@@ -1,6 +1,7 @@
 package com.napier.sem;
 //import sql Package
 import java.sql.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class App
@@ -22,166 +23,196 @@ public class App
 
         //Display The list of Country by population from largest to smallest
         System.out.println("\n");
-        System.out.println("The list of country by population from largest to smallest");
+        System.out.println("1. The list of country by population from largest to smallest");
         ArrayList<Country> country = a.CountryLS();
         a.printCountryLS(country);
 
         //Display the countries in Asia by population from largest to smallest
         System.out.println("\n");
-        System.out.println("Country list in Asia by population from largest to smallest");
+        System.out.println("2. Country list in Asia by population from largest to smallest");
         ArrayList<Country> continent = a.continent_countryLS();
         a.print_countrylist_continentLS(continent);
 
         //Display the countries in Southeast Asia by population from largest to smallest
         System.out.println("\n");
-        System.out.println("country list in Southeast Asia by population from largest to smallest");
+        System.out.println("3. Country list in Southeast Asia by population from largest to smallest");
         ArrayList<Country> clist_region = a.Region_CountryLS();
         a.print_countrylist_regionLS(clist_region);
 
         //Display Top 10 populated countries in the world
         System.out.println("\n");
-        System.out.println("Top 10 Populated countries in the world");
+        System.out.println("4. Top 10 Populated countries in the world");
         ArrayList<Country> popcnty_world = a.mostpopcountry_worldLS();
         a.print_countrylist_regionLS(popcnty_world);
 
         //Display Top 10 populated countries in Asia
         System.out.println("\n");
-        System.out.println("Top 10 Populated countries in Asia");
+        System.out.println("5. Top 10 Populated countries in Asia");
         ArrayList<Country> popcnty_continent = a.mostpopcnty_continent();
         a.print_countrylist_continentLS(popcnty_continent);
 
         //Display Top 10 populated countries in Southeast Asia
         System.out.println("\n");
-        System.out.println("Top 10 Populated countries in Southeast Asia");
+        System.out.println("6. Top 10 Populated countries in Southeast Asia");
         ArrayList<Country> popcity = a.popcity_world();
         a.print_popcity_world(popcity);
 
         //Display cities in the world organized by population from largest to smallest
         System.out.println("\n");
-        System.out.println("City list in the world organized by population from largest to smallest");
+        System.out.println("7. City list in the world organized by population from largest to smallest");
         ArrayList<City> popcnty_region = a.mostpopcnty_region();
         a.prin_popcnty_region(popcnty_region);
 
         //Display cities in a continent organized by population from largest to smallest
         System.out.println("\n");
-        System.out.println("City list in a continent organized by population from largest to smallest");
+        System.out.println("8. City list in a continent organized by population from largest to smallest");
         ArrayList<City> popcity_continent = a.popcity_continent();
         a.print_popcity_continent(popcity_continent);
 
         //Display Top 10 populated cities in the world
         System.out.println("\n");
-        System.out.println("Top 10 Populated cities in the world");
+        System.out.println("9. Top 10 Populated cities in the world");
         ArrayList<City> pocity_world = a.mostpopcity_worldLS();
         a.print_pcity_world(pocity_world);
 
         //Display Top 10 populated cities in the continent
         System.out.println("\n");
-        System.out.println("Top 10 Populated cities in Asia continent");
+        System.out.println("10. Top 10 Populated cities in Asia continent");
         ArrayList<City> pocity_continent = a.mostpopcity_continentLS();
         a.print_pcity_continentLS(pocity_continent);
 
         //Display Top 10 populated cities in a region
         System.out.println("\n");
-        System.out.println("Top 10 Populated cities in Eastern Asia region");
+        System.out.println("11. Top 10 Populated cities in Eastern Asia region");
         ArrayList<City> pocity_region = a.mostpopcity_regionLS();
         a.print_pcity_regionLS(pocity_region);
 
         //Display all cities in a region organized by population from largest to smallest
         System.out.println("\n");
-        System.out.println("City list in Southeast Asia organized by population from largest to smallest");
+        System.out.println("12. City list in Southeast Asia organized by population from largest to smallest");
         ArrayList<City> popcity_region = a.pcity_regionLS();
         a.print_popucitylist_CountryLS(popcity_region);
 
         //Display all cities in a country organized by population from largest to smallest
         System.out.println("\n");
-        System.out.println("City list in Japan organized by population from largest to smallest");
+        System.out.println("13. City list in Japan organized by population from largest to smallest");
         ArrayList<City> popcity_country = a.pcity_CountryLS();
         a.print_popucitylist_regionLS(popcity_country);
 
         //Display all cities in a district organized by population from largest to smallest
         System.out.println("\n");
-        System.out.println("City list in Osaka organized by population from largest to smallest");
+        System.out.println("14. City list in Osaka organized by population from largest to smallest");
         ArrayList<City> popcity_district = a.pcity_districtLS();
         a.print_popucitylist_districtLS(popcity_district);
 
 
         //Display Top 10 populated cities in JAPAN from largest to smallest
         System.out.println("\n");
-        System.out.println("Top 10 Populated cities in Japan country from largest to smallest");
+        System.out.println("15. Top 10 Populated cities in Japan country from largest to smallest");
         ArrayList<City> popcitylistcountry = a.mostpop_city_countryLS();
         a.print_populationcity_countryLS(popcitylistcountry);
 
         //Display Top 10 populated cities in Chiba district from largest to smallest
         System.out.println("\n");
-        System.out.println("Top 10 Populated cities in Chiba District from largest to smallest");
+        System.out.println("16. Top 10 Populated cities in Chiba District from largest to smallest");
         ArrayList<City> popcitylistdistrict = a.mostpop_city_districtLS();
         a.print_populationcity_DistrictLS(popcitylistdistrict);
 
         //Display the population of capital cities in the world from largest to smallest
         System.out.println("\n");
-        System.out.println("Population of capital cities in the world from largest to smallest");
+        System.out.println("17. Population of capital cities in the world from largest to smallest");
         ArrayList<City> capitalcitiesworld = a.capitalcitiesworldLS();
         a.printcapitalcitiesLS(capitalcitiesworld);
 
         //Display the population of capital cities in a continent from largest to smallest
         System.out.println("\n");
-        System.out.println("Population of capital cities in Asia");
+        System.out.println("18. Population of capital cities in Asia");
         ArrayList<City> capitalcitiescontinent = a.capitalcitiescontinentLS();
         a.printcapcitiescontinentLS(capitalcitiescontinent);
 
         //Display the population of capital cities in a region from largest to smallest
         System.out.println("\n");
-        System.out.println("Population of capital cities in Eastern Asia from largest to smallest");
+        System.out.println("19. Population of capital cities in Eastern Asia from largest to smallest");
         ArrayList<City> capitalcitiesregion = a.capitalcitiesregionLS();
         a.printcapcitiesregionLS(capitalcitiesregion);
 
         //Display Top 10 populated capital cities in the world
         System.out.println("\n");
-        System.out.println("Top 10 populated capital cities in the world");
+        System.out.println("20. Top 10 populated capital cities in the world");
         ArrayList<City> populatedcapitalcitiesworld = a.populatedcapitalcitiesworld();
         a.printpopulatedcapitalcitiesworld(populatedcapitalcitiesworld);
 
         //Display Top 10 populated capital cities in a continent
         System.out.println("\n");
-        System.out.println("Top 10 Populated capital cities in Asia continent");
+        System.out.println("21. Top 10 Populated capital cities in Asia continent");
         ArrayList<City> popCapCityContinent = a.pop_capitalCityContinent();
         a.print_pop_capitalCityContinent(popCapCityContinent);
 
         //Display Top 10 populated capital cities in a region
         System.out.println("\n");
-        System.out.println("Top 10 Populated capital cities in Eastern Asia region");
+        System.out.println("22. Top 10 Populated capital cities in Eastern Asia region");
         ArrayList<City> popCapCityRegion = a.pop_capitalCityRegion();
         a.print_pop_capitalCityRegion(popCapCityRegion);
 
+        //Display the population of people, people living in cities, and people not living in cities in each continent
+        System.out.println("\n");
+        System.out.println("23. The population of people, people living in cities, and people not living in cities in each continent");
+        a.peopleLivingOrNotContinent();
+
+        //Display the population of people, people living in cities, and people not living in cities in each region
+        System.out.println("\n");
+        System.out.println("24. The population of people, people living in cities, and people not living in cities in each region");
+        ArrayList<Country> pop = a.livingOrNotRegion();
+        a.printLivingOrNotRegion(pop);
+
+        //Display the population of people, people living in cities, and people not living in cities in each country
+        System.out.println("\n");
+        System.out.println("25. The population of people, people living in cities, and people not living in cities in each country");
+        ArrayList<Country> pop1 = a.livingOrNotCountry();
+        a.printLivingOrNotCountry(pop1);
+
+        //Display the population of the world
+        System.out.println("\n");
+        System.out.println("26. The Population of the world");
+        ArrayList<Long> popWorld = a.getPopWorld();
+        a.print_popWorld(popWorld);
+
         //Display the population of a continent
         System.out.println("\n");
-        System.out.println("The Population of North America continent");
+        System.out.println("27. The Population of North America continent");
         ArrayList<Country> popContinent = a.getPopContinent();
         a.print_popContinent(popContinent);
 
         //Display the population of a region
         System.out.println("\n");
-        System.out.println("The Population of Middle East region");
+        System.out.println("28. The Population of Middle East region");
         ArrayList<Country> popRegion = a.getPopRegion();
         a.print_popRegion(popRegion);
 
         //Display the population of a country
         System.out.println("\n");
-        System.out.println("The Population of Albania country");
+        System.out.println("29. The Population of Albania country");
         ArrayList<Country> popCountry = a.getPopCountry();
         a.print_popCountry(popCountry);
 
         //Display the population of a district
         System.out.println("\n");
-        System.out.println("The Population of New South Wales district");
+        System.out.println("30. The Population of New South Wales district");
         ArrayList<City> popDistrict = a.getPopDistrict();
         a.print_popDistrict(popDistrict);
 
         //Display the population of a city
         System.out.println("\n");
-        System.out.println("The Population of Sydney city");
+        System.out.println("31. The Population of Sydney city");
         ArrayList<City> popCity = a.getPopCity();
         a.print_popCity(popCity);
+
+        //Percentage of the world languages
+        System.out.println("\n");
+        System.out.println("32. Percentage of the world languages");
+        ArrayList<Language> languages = a.languageWorld();
+        ArrayList<Long> totalp = a.getPopWorld();
+        a.printLanguageWorld(languages,totalp);
 
         // Disconnect from database
         a.disconnect();
@@ -1324,6 +1355,227 @@ public class App
     }
     //End
 
+    //Query 23
+    public void peopleLivingOrNotContinent(){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String conPeopleList = "SELECT Continent, SUM(Population) from country Group By Continent";
+
+            // Execute SQL statement
+            ResultSet rset1 = stmt.executeQuery(conPeopleList);
+            // Extract employee information
+            ArrayList<Country> City = new ArrayList<Country>();
+
+            while (rset1.next())
+            {
+                Country cty = new Country();
+                cty.setCtyPopulation(rset1.getLong("SUM(Population)"));
+                cty.setContinent(rset1.getString("Continent"));
+                System.out.println("Population of Country in "+cty.getContinent()+" Continent: "+cty.getCtyPopulation());
+                City.add(cty);
+            }
+
+            //Result set 3
+            for(Country con : City) {
+                String conName = con.getContinent();
+                long continentPop = con.getCtyPopulation();
+                long cityPop = new Long("0");
+                long livPop = new Long("0");
+                long notlivPop = new Long("0");
+                String countryCode = "SELECT Code from country Where Continent='" + conName + "'";
+                ResultSet rset3 = stmt.executeQuery(countryCode);
+                while (rset3.next()) {
+                    com.napier.sem.Country country = new Country();
+                    country.setCode(rset3.getString("Code"));
+                    String ctyPeopleList = "SELECT Population from city where CountryCode = '" + country.getCode() + "'";
+                    long cityPop1 = livingCityPop(ctyPeopleList);
+                    cityPop = Long.sum(cityPop,cityPop1);
+
+                }
+                System.out.println("\n");
+                System.out.println("Continent Name: "+conName);
+                System.out.println("Living in city: "+cityPop);
+                System.out.println("No living in city: "+Math.subtractExact(continentPop, cityPop));
+
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Country list");
+        }
+    }
+    public Long livingCityPop(String query){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(query);
+            long livingPop = new Long("0");
+            while (rset.next())
+            {
+                City city = new City();
+                livingPop = rset.getLong("Population");
+            }
+            return livingPop;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Country list");
+            return null;
+        }
+    }
+    //End
+
+    //Query 24
+    public ArrayList<Country> livingOrNotRegion()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String regionlist = "Select country.Region, sum(country.Population) as SumPop,sum(city.Population) as ctyPop from country,city where country.Code = city.CountryCode Group By country.Region";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(regionlist);
+            // Extract employee information
+            ArrayList<Country> City = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country city = new Country();
+                city.setCtyPopulation(rset.getLong("ctyPop"));
+                city.setCounPopulation(rset.getLong("SumPop"));
+                city.setName(rset.getString("Region"));
+                City.add(city);
+            }
+            return City;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Country list");
+            return null;
+        }
+    }
+    public void printLivingOrNotRegion(ArrayList<Country> City1) {
+        //Check null
+        if (City1 == null) {
+            System.out.println("No Population information in City");
+            return;
+        }
+        // Print header
+        System.out.println(String.format("%-30s %-30s %-30s ","Region Name", "Living Population(Percent)","Non Living Population(Percent)" ));
+        // Loop over all employees in the list
+        for (Country emp : City1) {
+            if (emp == null)
+                continue;
+            BigDecimal perc = new BigDecimal("100");
+            BigDecimal city = new BigDecimal(emp.getCtyPopulation());
+            BigDecimal citypercentage = city.multiply(perc).divide( new BigDecimal (emp.getCounPopulation()), 2);
+            Long total = emp.getCounPopulation() - emp.getCtyPopulation();
+            BigDecimal noncitypercentage = new BigDecimal(total).multiply(perc).divide( new BigDecimal (emp.getCounPopulation()),2);
+            System.out.format("%-30s %-30s %-25s\n",
+                    emp.getName(), emp.getCtyPopulation()+"("+citypercentage+"%)", total+"("+noncitypercentage+"%)");
+        }
+    }
+    //End
+
+    //Query 25
+    public ArrayList<Country> livingOrNotCountry()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String regionlist = "Select country.Name, sum(country.Population) as SumPop,sum(city.Population) as ctyPop , country.Code from country,city where country.Code = city.CountryCode Group By country.Code";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(regionlist);
+            // Extract employee information
+            ArrayList<Country> City = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country city = new Country();
+                city.setCtyPopulation(rset.getLong("ctyPop"));
+                city.setCounPopulation(rset.getLong("SumPop"));
+                city.setName(rset.getString("Name"));
+                City.add(city);
+            }
+            return City;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Country list");
+            return null;
+        }
+    }
+    public void printLivingOrNotCountry(ArrayList<Country> City1) {
+        //Check null
+        if (City1 == null) {
+            System.out.println("No Population information in City");
+            return;
+        }
+        // Print header
+        System.out.println(String.format("%-30s %-30s %-30s ","Country Name", "Living Population(Percent)","Non Living Population(Percent)" ));
+        // Loop over all employees in the list
+        for (Country emp : City1) {
+            if (emp == null)
+                continue;
+            BigDecimal perc = new BigDecimal("100");
+            BigDecimal city = new BigDecimal(emp.getCtyPopulation());
+            BigDecimal citypercentage = city.multiply(perc).divide( new BigDecimal (emp.getCounPopulation()), 2);
+            Long total = emp.getCounPopulation() - emp.getCtyPopulation();
+            BigDecimal noncitypercentage = new BigDecimal(total).multiply(perc).divide( new BigDecimal (emp.getCounPopulation()),2);
+            System.out.format("%-30s %-30s %-25s\n",
+                    emp.getName(), emp.getCtyPopulation()+"("+citypercentage+"%)", total+"("+noncitypercentage+"%)");
+        }
+    }
+    //End
+
+    //Query 26
+    public ArrayList<Long> getPopWorld()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String regionlist = "Select SUM(Population) From country GROUP By Continent";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(regionlist);
+            // Extract employee information
+            ArrayList<Long> City = new ArrayList<Long>();
+            while (rset.next())
+            {
+                Country city = new Country();
+                city.setCtyPopulation(rset.getLong("SUM(Population)"));
+                City.add(city.getCtyPopulation());
+            }
+            return City;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Country list");
+            return null;
+        }
+    }
+    public void print_popWorld(ArrayList<Long> City1)
+    {
+        //Check null
+        if(City1 == null){
+            System.out.println("No City List information in Region");
+            return;
+        }
+        Long allPopWorld = new Long("0");
+        // Print header
+        // Loop over all employees in the list
+        for (Long emp : City1) {
+            if (emp == null)
+                continue;
+            Long allPop = emp;
+            allPopWorld = Long.sum(allPopWorld,allPop);
+
+        }
+        System.out.println("The Population in the World: "+allPopWorld);
+    }
 
     //Query 27
     public ArrayList<Country> getPopContinent()
@@ -1455,7 +1707,7 @@ public class App
     }
     //End
 
-    //Query 32
+    //Query 30
     public ArrayList<City> getPopDistrict()
     {
         try
@@ -1499,7 +1751,7 @@ public class App
     //End
 
 
-    //Query 32
+    //Query 31
     public ArrayList<City> getPopCity()
     {
         try
@@ -1539,6 +1791,100 @@ public class App
                             emp.getPopulation(), emp.getName());
             System.out.println(emp_string);
         }
+    }
+    //End
+
+    //function 32
+    public ArrayList<Language> languageWorld()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            double Total = 0.0;
+            String regionlist = "Select countrylanguage.Language,countrylanguage.Percentage,countrylanguage.CountryCode,country.Population From country,countrylanguage where countrylanguage.CountryCode = country.Code and Language IN ('Chinese','English','Hindi','Spanish','Arabic')";
+            // Execute SQL statement
+            ResultSet rset1 = stmt.executeQuery(regionlist);
+            // Extract employee information
+            ArrayList<Language> City = new ArrayList<Language>();
+            ArrayList<Language> finalper = new ArrayList<>();
+            while (rset1.next())
+            {
+                Language city = new Language();
+                city.setLanguage(rset1.getString("countrylanguage.Language"));
+                city.setPercentage(rset1.getDouble("countrylanguage.Percentage"));
+                city.setName(rset1.getString("countrylanguage.CountryCode"));
+                city.setPopulation(rset1.getLong("country.Population"));
+                City.add(city);
+            }
+            ArrayList<Language> lan = new ArrayList<>();
+            for (Language lang : City){
+                Language language = new Language();
+                Total = lang.getPercentage()*lang.getPopulation()/100;
+                language.setTotal(Total);
+                language.setLanguage(lang.getLanguage());
+                lan.add(language);
+                //System.out.println("In "+lang.getName()+" "+Total+" of people are using "+lang.getLanguage()+" Language");
+
+            }
+            ArrayList<String> list = new ArrayList<String>();
+            list.add("Chinese");
+            list.add("English");
+            list.add("Hindi");
+            list.add("Spanish");
+            list.add("Arabic");
+            for (String p : list) {
+                Language fper = new Language();
+                Double percent = 0.0;
+                for (Language per : lan){
+                    if (per.getLanguage().equals(p)) {
+                        percent += per.getTotal();
+                        fper.setTotal(percent);
+                        fper.setLanguage(p);
+                    }
+                }
+                finalper.add(fper);
+            }
+
+            return finalper;
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Fail to print Language list");}
+        return null;
+    }
+    public void printLanguageWorld(ArrayList<Language> languages, ArrayList<Long> totalpopulation)
+    {
+        //Check null
+        if(languages == null){
+            System.out.println("No Language information in City");
+            return;
+        }
+        Long allPopWorld = new Long("0");
+        // Print header
+        // Loop over all employees in the list
+        for (Long emp : totalpopulation) {
+            if (emp == null)
+                continue;
+            Long allPop = emp;
+            allPopWorld = Long.sum(allPopWorld,allPop);
+
+        }
+
+        // Print header
+        // Loop over all employees in the list
+
+        for (Language emp : languages) {
+            if (emp == null)
+                continue;
+            Double Total= emp.getTotal();
+            Double hundread = 100.0;
+            Double Percentage = Total*hundread/allPopWorld;
+            System.out.println(emp.getLanguage()+": "+Percentage+"%");
+
+        }
+
     }
     //End
 
