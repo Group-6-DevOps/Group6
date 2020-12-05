@@ -24,7 +24,19 @@
 | 14 | City list in Osaka organized by population from largest to smallest. | Yes | ![Population](images/14.PNG)
 | 15 | Top 10 pupulated cities in Japan country from largest to smallest. | Yes | ![Population](images/15.PNG)
 | 16 | Top 10 pupulated cities in Chiba district from largest to smallest. | Yes | ![Population](images/16.PNG)
-
-
-
-
+| 17 | Population of capital cities in the world from largest to smallest. | Yes | ![Population](images/17.png)
+| 18 | Population of capital cities in Asia. | Yes | ![Population](images/18.png)
+| 19 | Population of capital cities in Eastern Asia from largest to smallest. | Yes | ![Population](images/19.png)
+| 20 | Top 10 populated capital cities in the world. | Yes | ![Population](images/20.png)
+| 21 | Top 10 populated capital cities in Asia continent. | Yes | ![Population](images/21.png)
+| 22 | Top 10 populated capital cities in Eastern Asia region. | Yes | ![Population](images/22.png)
+| 23 | The population of people, people living in cities, and people not living in cities in each continent. | Yes | ![Population](images/23.png)
+| 24 | The population of people, people living in cities, and people not living in cities in each region. | Yes | ![Population](images/24.png)
+| 25 | The population of people, people living in cities, and people not living in cities in each country. | Yes | ![Population](images/25.png)
+| 26 | The population of world. | Yes | ![Population](images/26.png)
+| 27 | The population of North America continent. | Yes | ![Population](images/27.png)
+| 28 | The population of Middle East region. | Yes | ![Population](images/28.png)
+| 29 | The population of Albania country. | Yes | ![Population](images/29.png)
+| 30 | The population of New South Wales district. | Yes | ![Population](images/30.png)
+| 31 | The population of Sydney city. | Yes | ![Population](images/31.png)
+| 32 | Percentage of the world languages. | Yes | ![Population](images/32.png)
