@@ -42,7 +42,7 @@ A request for world information is sent to users.
 - The population of North America continent.
 - The Population of New South Wales district.
 - The Population of Sydney city.
-- Percentage of the world languages.
+- Percentage of the Chinese, English, Hindi, Spanish and Arabic languages.
 
 ## EXTENSIONS
 
