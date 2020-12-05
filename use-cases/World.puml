@@ -93,6 +93,22 @@ rectangle "World Information" {
       Users - UC22
       UC22 - Database
 
+      usecase UC23 as "Display the population of people, people living in cities, and people not living in cities in each continent"
+      Users - UC23
+      UC23 - Database
+
+      usecase UC24 as "Display the population of people, people living in cities, and people not living in cities in each region"
+      Users - UC24
+      UC24 - Database
+
+      usecase UC25 as "Display the population of people, people living in cities, and people not living in cities in each country"
+      Users - UC25
+      UC25 - Database
+
+      usecase UC26 as "Display the population of the world"
+      Users - UC26
+      UC26 - Database
+
       usecase UC27 as "Display the population of North America Continent"
       Users - UC27
       UC27 - Database
@@ -113,6 +129,9 @@ rectangle "World Information" {
       Users - UC31
       UC31 - Database
 
+      usecase UC32 as "Display the percentage of world languages"
+      Users - UC32
+      UC32 - Database
 }
 
 @enduml
