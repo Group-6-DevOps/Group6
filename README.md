@@ -6,6 +6,14 @@
 - Release [![Releases](https://img.shields.io/github/release/Group-6-DevOps/Group6/all.svg?style=flat-square)](https://github.com/Group-6-DevOps/Group6/releases)
 - CodeCov [![codecov](https://codecov.io/gh/Group-6-DevOps/Group6/branch/master/graph/badge.svg?token=OVX5WK264O)](https://codecov.io/gh/Group-6-DevOps/Group6)
 
+32 requirements of 32 have been implemented, which is 100%.
+
+We then want evidence of each feature being met. We will evidence implemented features with a table following these columns. 
+1. ID of the requirement.
+2. Name of the requirement.
+3. Has the requirement been met (Yes or No).
+4. Screenshot.
+
 | ID | Name | Met | Screenshot | 
 | ---- | ----- | ----- | -------- |
 | 1 | The list of country by population from largest to smallest. | Yes | ![Population](images/1.PNG)
