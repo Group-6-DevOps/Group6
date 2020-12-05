@@ -1,9 +1,10 @@
-# USE CASE 3: Produce a Report of World Organization
+# USE CASE 4: Produce a Report of World Organization
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
 
 As users, we want to see the list of world organization so that we can support the report of world population.
+As organization, we want to see the number of people who speak Chinese, English, Hindi, Spanish and Arabic from greatest number to smallest, including the percentage of the world population so that we can see how many people speak those languages. 
 
 ### Scope
 
